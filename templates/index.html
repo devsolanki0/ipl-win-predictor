@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IPL Win Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>IPL Win Probability Predictor</h1>
+
+    <form action="/predict" method="post">
+
+        <input type="text" name="batting_team" placeholder="Batting Team" required>
+        <input type="text" name="bowling_team" placeholder="Bowling Team" required>
+        <input type="number" name="runs_to_get" placeholder="Runs to Get" required>
+        <input type="number" name="balls_remaining" placeholder="Balls Remaining" required>
+        <input type="number" name="wickets" placeholder="Wickets Lost" required>
+        <input type="number" name="current_score" placeholder="Current Score" required>
+        <input type="number" name="target" placeholder="Target Score" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Win Probability: {{ prediction }}%</h2>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
